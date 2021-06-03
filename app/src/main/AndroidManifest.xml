@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HackIDC2021">
-        <activity android:name=".take_a_picture"></activity>
+        <activity android:name=".take_a_picture" />
         <activity android:name=".personal_details" />
         <activity android:name=".choose_subject" />
         <activity android:name=".MainActivity">

@@ -35,7 +35,7 @@
     <string name="z">XXX</string>
     <string name="aa">XXX</string>
     <string name="ab">אשר</string>
-    <string name="ac">די לקצר את תהליך הדיווח, אנא אשרו את הפרטים הבאים</string>
+    <string name="ac">כדי לקצר את תהליך הדיווח, אנא אשרו את הפרטים הבאים</string>
     <string name="ad">דגם</string>
     <string name="ae">TODO</string>
     <string name="aj">j</string>
@@ -64,4 +64,5 @@
     <string name="joy">TODO</string>
     <string name="fky">nothing</string>
     <string name="hello">discription</string>
+    <string name="hil">hil</string>
 </resources>
