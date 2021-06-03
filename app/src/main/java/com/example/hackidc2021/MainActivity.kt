@@ -5,11 +5,15 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
-    val details : Person
+    val personDetails : Person
+    val eventDetails : Event
+    val insurType : Int
 
     init
     {
-        details = Person()
+        personDetails = Person()
+        eventDetails = Event()
+        insurType = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +30,81 @@ class MainActivity : AppCompatActivity() {
         return 0
     }
 
-    fun InshurenceType(type: String): Int
+    /**
+     * updates insurType to the relevant one and returm 0 on success -1 on failure.
+     */
+    fun InsuranceType(type: String): Int
     {
         return 0
     }
+
+    /**
+     * check who drove and adds it to the event instance. fills up the driver info accordingly
+     * returns 0 on success.
+     */
+    fun didTheOnerDrive(): Int
+    {
+        return 0
+    }
+
+    /**
+     * desplays info generated form the Person and Event objects. gets input from user
+     * for specific fields and updates the person & event instances accordingly.
+     * personal info as: name, id, etc event info as driver, num of vehicle etc.
+     */
+    fun Info(): Int
+    {
+        return 0
+    }
+
+    /**
+     * gets AccidentInfo and save in the event, gets pics, voice description etc.
+     * In here we may add a check if the pics are from the internet, if the ID on the car matches,
+     * if the car color and photos we have are matching the color and type in the photos we get.
+     * Location of the accident - will get from phone here.
+     */
+    fun AccidentInfo(): Int
+    {
+        return 0
+    }
+
+    /**
+     * success if success in the end and send file / data to company.
+     */
+    fun FinnishProccess(): Int
+    {
+        return 0
+    }
+
+    /**
+     * save temp info to phone so we can continue later.
+     */
+    fun saveTempToPhone(): Int
+    {
+        return 0
+    }
+
+    fun PhotoGetter() : ??
+    {
+    }
+
+    fun LocationGetter(): ??
+    {
+    }
+
+    fun MicrophoneGeter() ??
+    {
+    }
+
+    fun MicrophoneToString() ??
+    {
+    }
+
+    fun StringInputGetter(): String
+    {
+    }
+
+
+
 
 }
