@@ -2,15 +2,20 @@ package com.example.hackidc2021
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.BufferedReader
 import java.io.FileReader
 import java.nio.file.Paths
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+//    val personDetails: Person = Person()
+//    val eventDetails: Event = Event()
+//    val insurType: Int = 0
 
     val personDetails: Person
     val eventDetails: Event
@@ -36,17 +41,23 @@ class MainActivity : AppCompatActivity() {
         db.addContact(Person(2, "Tommy", "9522222222"))
         db.addContact(Person(3, "Karthik", "9533333333"))
 
-        // Reading all contacts
-        Log.d("Reading: ", "Reading all contacts..")
-        val contacts: List<Person> = db.allContacts
-        for (cn in contacts) {
-            val log = "Id: " + cn.iD.toString() + " ,Name: " + cn.name
-                .toString() + " ,Phone: " +
-                    cn.phoneNumber
-            // Writing Contacts to log
-            Log.d("Name: ", log)
+//        // Reading all contacts
+//        Log.d("Reading: ", "Reading all contacts..")
+//        val contacts: List<Person> = db.allContacts
+//        for (cn in contacts) {
+//            val log = "Id: " + cn.iD.toString() + " ,Name: " + cn.name
+//                .toString() + " ,Phone: " +
+//                    cn.phoneNumber
+//            // Writing Contacts to log
+//            Log.d("Name: ", log)
+//        }
+
+        button.setOnClickListener{
+            personDetails.name = editTextTextPersonName.text.toString()
+            personDetails.password = editTextTextPassword.text.toString()
+            Login()
         }
-        checkLoginInfo()
+       // checkLoginInfo()
     }
 
     /**
@@ -67,17 +78,17 @@ class MainActivity : AppCompatActivity() {
      * if not valid - return -1
      */
     fun checkLoginInfo(): Int {
-        val bufferedReader = BufferedReader(FileReader("/users.csv"));
-
-        val csvParser = CSVParser(bufferedReader, CSVFormat.DEFAULT
-            .withFirstRecordAsHeader()
-            .withIgnoreHeaderCase()
-            .withTrim());
-
-        for (csvRecord in csvParser) {
-            println(csvRecord.get("username"))
-            println(csvRecord.get("password"))
-        }
+//        val bufferedReader = BufferedReader(FileReader("/users.csv"));
+//
+//        val csvParser = CSVParser(bufferedReader, CSVFormat.DEFAULT
+//            .withFirstRecordAsHeader()
+//            .withIgnoreHeaderCase()
+//            .withTrim());
+//
+//        for (csvRecord in csvParser) {
+//            println(csvRecord.get("username"))
+//            println(csvRecord.get("password"))
+//        }
 
         return 0
     }

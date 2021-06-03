@@ -4,6 +4,7 @@ class Person
 {
     var iD: Long = 0
     var name: String? = null
+    var password: String? = null
     var phoneNumber: String? = null
 
     constructor() {}
