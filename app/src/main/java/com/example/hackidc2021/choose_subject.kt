@@ -7,9 +7,14 @@ import kotlinx.android.synthetic.main.activity_choose_subject.*
 
 
 class choose_subject : AppCompatActivity() {
+
+    init {
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_subject)
-        person_name_box.setText(person.name);
+        person_name_box.setText(person.name)
+
     }
 }
