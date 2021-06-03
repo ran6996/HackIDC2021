@@ -1,0 +1,2 @@
+username,password,first,last,phone,email,age,single_driver
+hadasn,123,Hadas,Nahshon,0521234567,hn@gmail.com,24,Yes
