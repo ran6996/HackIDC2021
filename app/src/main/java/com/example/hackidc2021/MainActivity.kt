@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity() {
                 return 0
             }
         }
+        return 0;
     }
 
     /**
