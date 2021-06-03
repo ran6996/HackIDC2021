@@ -14,7 +14,7 @@
         android:layout_marginTop="88dp"
         android:layout_marginEnd="73dp"
         android:layout_marginRight="73dp"
-        android:text="שלום "
+        android:text="@string/hi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,11 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="316dp"
-        android:text="ביטוח רפואי"
+        android:text="@string/med_in"
         app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView8"
@@ -37,20 +39,10 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
-        android:text="עבור איזה ביטוח ברצונך להעלות דיווח?"
+        android:text="@string/quest"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="113dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/doctor"
-        tools:layout_editor_absoluteY="259dp" />
 
     <Button
         android:id="@+id/button3"
@@ -58,51 +50,79 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         android:layout_marginBottom="316dp"
-        android:text="ביטוח רכב"
+        android:text="@string/car_in"
         app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="316dp"
-        android:text="ביטוח דירה"
+        android:text="@string/apart_in"
         app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="139dp"
-        android:layout_height="118dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        android:id="@+id/imageView"
+        android:layout_width="136dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="38dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:srcCompat="@drawable/car" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="127dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:contentDescription="@string/imim"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/cardark" />
+        app:srcCompat="@drawable/doc" />
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="149dp"
-        android:layout_height="113dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        android:id="@+id/imageView3"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@string/amam"
+        android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/homegg" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:srcCompat="@drawable/home" />
+
+    <TextView
+        android:id="@+id/person_name_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:text="@string/name_name"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
