@@ -1,16 +1,19 @@
 package com.example.hackidc2021
 
+import android.content.Context
+import android.content.Intent
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.BufferedReader
-import java.nio.file.Paths
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStreamReader
-import java.io.Reader
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         // Added for DB.
         val db = DatabaseHandler(this)
+        val speedNotif = SpeedNotification(this)
+
 
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..")
@@ -50,12 +55,26 @@ class MainActivity : AppCompatActivity() {
             Log.d("Name: ", log)
         }
 
-        button.setOnClickListener{
+        button.setOnClickListener {
             personDetails.name = editTextTextPersonName.text.toString()
             personDetails.password = editTextTextPassword.text.toString()
             Login()
         }
-       // checkLoginInfo()
+        speedNotif.showNotification()
+        // checkLoginInfo()
+
+//        val locationManager =
+//            this.getSystemService<Any>(Context.LOCATION_SERVICE) as LocationManager
+//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this)
+//        this.updateSpeed(null)
+//
+//        val chkUseMetricUntis = findViewById<View>(R.id.chkMetricUnits) as CheckBox
+//        chkUseMetricUntis.setOnCheckedChangeListener(object : OnCheckedChangeListener() {
+//            fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+//                // TODO Auto-generated method stub
+//                this@MainActivity.updateSpeed(null)
+//            }
+//        })
     }
 
     /**
@@ -87,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         for (csvRecord in csvParser) {
             val user = csvRecord.get("username")
             val pswd = csvRecord.get("password")
-            if (personDetails.username == user && personDetails.password == pswd){
+            if (personDetails.username == user && personDetails.password == pswd) {
                 return 0
             }
         }
@@ -140,6 +159,12 @@ class MainActivity : AppCompatActivity() {
      */
     fun saveTempToPhone(): Int {
         return 0
+    }
+
+    fun GetSpeed(v: View?) {
+        val intent = Intent(this, TempLoc::class.java)
+        startActivity(intent)
+        // Start the activity to get speed
     }
 
 
