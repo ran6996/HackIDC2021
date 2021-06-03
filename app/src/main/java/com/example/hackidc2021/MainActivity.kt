@@ -42,15 +42,15 @@ class MainActivity : AppCompatActivity() {
         db.addContact(Person(3, "Karthik", "9533333333"))
 
 //        // Reading all contacts
-//        Log.d("Reading: ", "Reading all contacts..")
-//        val contacts: List<Person> = db.allContacts
-//        for (cn in contacts) {
-//            val log = "Id: " + cn.iD.toString() + " ,Name: " + cn.name
-//                .toString() + " ,Phone: " +
-//                    cn.phoneNumber
-//            // Writing Contacts to log
-//            Log.d("Name: ", log)
-//        }
+        Log.d("Reading: ", "Reading all contacts..")
+        val contacts: List<Person> = db.allContacts
+        for (cn in contacts) {
+            val log = "Id: " + cn.iD.toString() + " ,Name: " + cn.name
+                .toString() + " ,Phone: " +
+                    cn.phoneNumber
+            // Writing Contacts to log
+            Log.d("Name: ", log)
+        }
 
         button.setOnClickListener{
             personDetails.name = editTextTextPersonName.text.toString()
