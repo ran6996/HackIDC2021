@@ -1,13 +1,14 @@
 package com.example.hackidc2021
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import org.apache.commons.csv.CSVFormat
-import org.apache.commons.csv.CSVParser
-import java.io.BufferedReader
-import java.io.FileReader
-import java.nio.file.Paths
+import com.example.hackidc2021.CameraUsage.TakePicture
+import com.example.hackidc2021.ImageUpload.Upload
 
 
 class MainActivity : AppCompatActivity() {
@@ -67,17 +68,17 @@ class MainActivity : AppCompatActivity() {
      * if not valid - return -1
      */
     fun checkLoginInfo(): Int {
-        val bufferedReader = BufferedReader(FileReader("/users.csv"));
-
-        val csvParser = CSVParser(bufferedReader, CSVFormat.DEFAULT
-            .withFirstRecordAsHeader()
-            .withIgnoreHeaderCase()
-            .withTrim());
-
-        for (csvRecord in csvParser) {
-            println(csvRecord.get("username"))
-            println(csvRecord.get("password"))
-        }
+//        val bufferedReader = BufferedReader(FileReader("/users.csv"));
+//
+//        val csvParser = CSVParser(bufferedReader, CSVFormat.DEFAULT
+//            .withFirstRecordAsHeader()
+//            .withIgnoreHeaderCase()
+//            .withTrim());
+//
+//        for (csvRecord in csvParser) {
+//            println(csvRecord.get("username"))
+//            println(csvRecord.get("password"))
+//        }
 
         return 0
     }
@@ -130,8 +131,17 @@ class MainActivity : AppCompatActivity() {
         return 0
     }
 
+    fun PhotoGetter(v: View?) {
+        val intent = Intent(this, Upload::class.java)
+        startActivity(intent)
+        // Start the activity to upload an image
+    }
 
-    fun PhotoGetter() {}
+    fun TakePhoto(v: View?) {
+        val intent = Intent(this, TakePicture::class.java)
+        startActivity(intent)
+        // Start the activity to upload an image
+    }
 
     fun LocationGetter() {}
 
