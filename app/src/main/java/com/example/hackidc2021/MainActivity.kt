@@ -103,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             val user = csvRecord.get("username")
             val pswd = csvRecord.get("password")
             if (personDetails.username == user && personDetails.password == pswd){
+                personDetails.name = csvRecord.get("first")
                 return 0
             }
         }
