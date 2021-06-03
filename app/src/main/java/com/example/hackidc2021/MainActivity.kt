@@ -3,6 +3,7 @@ package com.example.hackidc2021
 import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Intent
+import android.icu.util.UniversalTimeScale.toLong
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -104,6 +105,18 @@ class MainActivity : AppCompatActivity() {
             val pswd = csvRecord.get("password")
             if (personDetails.username == user && personDetails.password == pswd){
                 personDetails.name = csvRecord.get("first")
+                personDetails.iD = csvRecord.get("id").toLong()
+                personDetails.lastName = csvRecord.get("last")
+                personDetails.phoneNumber = csvRecord.get("phone").toLong()
+                personDetails.email = csvRecord.get("email")
+                personDetails.age = csvRecord.get("age")
+                personDetails.isSingleDriver = if (csvRecord.get("first") == "Yes") true else false
+                personDetails.policyType = csvRecord.get("policyType")
+                personDetails.address = csvRecord.get("address")
+                personDetails.policyNumber = csvRecord.get("policyNumber").toLong()
+                personDetails.vehicleYear = csvRecord.get("vehicleYear").toInt()
+                personDetails.vehicleModel = csvRecord.get("vehicleModel")
+                personDetails.carId = csvRecord.get("carId").toLong()
                 return 0
             }
         }
