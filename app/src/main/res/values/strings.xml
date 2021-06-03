@@ -49,4 +49,19 @@
     <string name="amam">tofo</string>
     <string name="nn" />
     <string name="mm" />
+    <string name="pic_tp">צילום מסמכים - תעודה וביטוח צד ג</string>
+    <string name="files">XXX</string>
+    <string name="pic_uplo">צילום והעלאת מסמכים</string>
+    <string name="filefile">קבצים שהועלו עד כה:</string>
+    <string name="cside">העלה או צלם מסמכי צד ג</string>
+    <string name="takeapicofthecar">צילום הרכב</string>
+    <string name="instruct">העלה תמונות או צלם את הפגיעה ברכב</string>
+    <string name="uploadedfiles">קבצים שהועלו עד כה:</string>
+    <string name="inputiii">XXX</string>
+    <string name="ndjb">TODO</string>
+    <string name="gapr">TODO</string>
+    <string name="fun">TODO</string>
+    <string name="joy">TODO</string>
+    <string name="fky">nothing</string>
+    <string name="hello">discription</string>
 </resources>
