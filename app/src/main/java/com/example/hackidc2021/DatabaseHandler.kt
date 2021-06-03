@@ -26,7 +26,7 @@ class DatabaseHandler(context: Context?) :
     }
 
     // code to add the new contact
-    fun addContact(contact: PracticeClass) {
+    fun addContact(contact: Person) {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_NAME, contact.name) // Contact Name
@@ -39,7 +39,7 @@ class DatabaseHandler(context: Context?) :
     }
 
     // code to get the single contact
-    fun getContact(id: Int): PracticeClass {
+    fun getContact(id: Int): Person {
         val db = this.readableDatabase
         val cursor = db.query(
             TABLE_CONTACTS,
@@ -57,7 +57,7 @@ class DatabaseHandler(context: Context?) :
         )
         cursor?.moveToFirst()
         // return contact
-        return PracticeClass(
+        return Person(
             cursor!!.getString(0).toLong(),
             cursor.getString(1), cursor.getString(2)
         )
@@ -68,9 +68,9 @@ class DatabaseHandler(context: Context?) :
 
     // looping through all rows and adding to list
     // code to get all contacts in a list view
-    val allContacts: List<PracticeClass>
+    val allContacts: List<Person>
         get() {
-            val contactList: MutableList<PracticeClass> = ArrayList<PracticeClass>()
+            val contactList: MutableList<Person> = ArrayList<Person>()
             // Select All Query
             val selectQuery = "SELECT  * FROM " + TABLE_CONTACTS
             val db = this.writableDatabase
@@ -79,7 +79,7 @@ class DatabaseHandler(context: Context?) :
             // looping through all rows and adding to list
             if (cursor.moveToFirst()) {
                 do {
-                    val contact = PracticeClass()
+                    val contact = Person()
                     contact.iD = cursor.getString(0).toLong()
                     contact.name = cursor.getString(1)
                     contact.phoneNumber = cursor.getString(2)
@@ -93,7 +93,7 @@ class DatabaseHandler(context: Context?) :
         }
 
     // code to update the single contact
-    fun updateContact(contact: PracticeClass): Int {
+    fun updateContact(contact: Person): Int {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_NAME, contact.name)
@@ -109,7 +109,7 @@ class DatabaseHandler(context: Context?) :
     }
 
     // Deleting single contact
-    fun deleteContact(contact: PracticeClass) {
+    fun deleteContact(contact: Person) {
         val db = this.writableDatabase
         db.delete(TABLE_CONTACTS, KEY_ID + " = ?", arrayOf(contact.iD.toString()))
         db.close()
