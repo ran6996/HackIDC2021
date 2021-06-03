@@ -1,28 +1,32 @@
 package com.example.hackidc2021
 
+import android.content.ComponentName
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.BufferedReader
-import java.nio.file.Paths
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStreamReader
-import java.io.Reader
 
+
+const val PERSON = "personDetails"
+const val EVENT = "eventDetails"
 
 class MainActivity : AppCompatActivity() {
 
     val personDetails: Person
     val eventDetails: Event
     val insurType: Int
+    val secondActivity: choose_subject
 
     init {
         personDetails = Person()
         eventDetails = Event()
         insurType = 0
+        secondActivity = choose_subject()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,23 +55,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         button.setOnClickListener{
-            personDetails.name = editTextTextPersonName.text.toString()
+            personDetails.username = editTextTextPersonName.text.toString()
             personDetails.password = editTextTextPassword.text.toString()
             Login()
         }
        // checkLoginInfo()
     }
 
+
     /**
      * gets a name and password, adds to PersonAndEvent all relevant fields if exist. if no such
      * name or password - returns -1 (fail), else - returns success (0).
      */
-    fun Login(): Int {
+    fun Login() {
         if (checkLoginInfo() == -1) {
             print("The userName or password was incorrect.")
-            return -1
+            return
         } else {
-            return 0
+            val intent = Intent(this, choose_subject::class.java)
+            intent.putExtra(PERSON, personDetails)
+            intent.putExtra(EVENT, eventDetails)
+            startActivity(intent)
         }
     }
 
@@ -82,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         val csvParser = CSVParser(
             bufferedReader, CSVFormat.DEFAULT
                 .withFirstRecordAsHeader()
-        );
+        )
 
         for (csvRecord in csvParser) {
             val user = csvRecord.get("username")
@@ -91,7 +99,7 @@ class MainActivity : AppCompatActivity() {
                 return 0
             }
         }
-        return -1;
+        return -1
     }
 
     /**
