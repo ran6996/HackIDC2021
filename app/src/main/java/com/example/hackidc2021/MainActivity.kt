@@ -10,12 +10,11 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.nio.file.Paths
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.InputStreamReader
+import java.io.Reader
+
 
 class MainActivity : AppCompatActivity() {
-
-//    val personDetails: Person = Person()
-//    val eventDetails: Event = Event()
-//    val insurType: Int = 0
 
     val personDetails: Person
     val eventDetails: Event
@@ -78,19 +77,24 @@ class MainActivity : AppCompatActivity() {
      * if not valid - return -1
      */
     fun checkLoginInfo(): Int {
-//        val bufferedReader = BufferedReader(FileReader("/users.csv"));
-//
-//        val csvParser = CSVParser(bufferedReader, CSVFormat.DEFAULT
-//            .withFirstRecordAsHeader()
-//            .withIgnoreHeaderCase()
-//            .withTrim());
-//
-//        for (csvRecord in csvParser) {
-//            println(csvRecord.get("username"))
-//            println(csvRecord.get("password"))
-//        }
 
-        return 0
+        val bufferedReader = BufferedReader(InputStreamReader(assets.open("users.txt")))
+
+        val csvParser = CSVParser(
+            bufferedReader, CSVFormat.DEFAULT
+                .withFirstRecordAsHeader()
+        );
+
+        for (csvRecord in csvParser) {
+            val user = csvRecord.get("username")
+            val pswd = csvRecord.get("password")
+            if (personDetails.username == user && personDetails.password == pswd){
+                return 1
+            }
+            else{
+                return 0
+            }
+        }
     }
 
     /**
