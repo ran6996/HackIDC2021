@@ -3,6 +3,11 @@ package com.example.hackidc2021
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import org.apache.commons.csv.CSVFormat
+import org.apache.commons.csv.CSVParser
+import java.io.BufferedReader
+import java.io.FileReader
+import java.nio.file.Paths
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,14 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..")
-        db.addContact(PracticeClass(0, "Ravi", "9100000000"))
-        db.addContact(PracticeClass(1, "Srinivas", "9199999999"))
-        db.addContact(PracticeClass(2, "Tommy", "9522222222"))
-        db.addContact(PracticeClass(3, "Karthik", "9533333333"))
+        db.addContact(Person(0, "Ravi", "9100000000"))
+        db.addContact(Person(1, "Srinivas", "9199999999"))
+        db.addContact(Person(2, "Tommy", "9522222222"))
+        db.addContact(Person(3, "Karthik", "9533333333"))
 
         // Reading all contacts
         Log.d("Reading: ", "Reading all contacts..")
-        val contacts: List<PracticeClass> = db.allContacts
+        val contacts: List<Person> = db.allContacts
         for (cn in contacts) {
             val log = "Id: " + cn.iD.toString() + " ,Name: " + cn.name
                 .toString() + " ,Phone: " +
@@ -41,21 +46,18 @@ class MainActivity : AppCompatActivity() {
             // Writing Contacts to log
             Log.d("Name: ", log)
         }
+        checkLoginInfo()
     }
 
     /**
-     * gets a name and password, adds to PersonAndEvent all relevant fields if exsist. if no such
+     * gets a name and password, adds to PersonAndEvent all relevant fields if exist. if no such
      * name or password - returns -1 (fail), else - returns success (0).
      */
-    fun NameAndPassword(): Int
-    {
-        if (checkUseAndPasswordOnExcel() == -1)
-        {
-            print("The UserName or Password was incorrect")
+    fun Login(): Int {
+        if (checkLoginInfo() == -1) {
+            print("The userName or password was incorrect.")
             return -1
-        }
-        else
-        {
+        } else {
             return 0
         }
     }
@@ -64,8 +66,19 @@ class MainActivity : AppCompatActivity() {
      * checks userName and password and if valid - populates the person part. return 0 on success.
      * if not valid - return -1
      */
-    fun checkUseAndPasswordOnExcel() : Int
-    {
+    fun checkLoginInfo(): Int {
+        val bufferedReader = BufferedReader(FileReader("/users.csv"));
+
+        val csvParser = CSVParser(bufferedReader, CSVFormat.DEFAULT
+            .withFirstRecordAsHeader()
+            .withIgnoreHeaderCase()
+            .withTrim());
+
+        for (csvRecord in csvParser) {
+            println(csvRecord.get("username"))
+            println(csvRecord.get("password"))
+        }
+
         return 0
     }
 
@@ -106,7 +119,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * success if success in the end and send file / data to company.
      */
-    fun FinnishProccess(): Int {
+    fun FinishProccess(): Int {
         return 0
     }
 
