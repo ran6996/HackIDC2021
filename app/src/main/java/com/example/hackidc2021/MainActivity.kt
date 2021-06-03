@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         // Added for DB.
         val db = DatabaseHandler(this)
-        val speedNotif = SpeedNotification(this)
 
 
         // Inserting Contacts
@@ -60,22 +59,11 @@ class MainActivity : AppCompatActivity() {
             personDetails.password = editTextTextPassword.text.toString()
             Login()
         }
-        speedNotif.showNotification()
-        // checkLoginInfo()
 
-//        val locationManager =
-//            this.getSystemService<Any>(Context.LOCATION_SERVICE) as LocationManager
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this)
-//        this.updateSpeed(null)
-//
-//        val chkUseMetricUntis = findViewById<View>(R.id.chkMetricUnits) as CheckBox
-//        chkUseMetricUntis.setOnCheckedChangeListener(object : OnCheckedChangeListener() {
-//            fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-//                // TODO Auto-generated method stub
-//                this@MainActivity.updateSpeed(null)
-//            }
-//        })
+        // Push notification following 3 shakes.
+        startActivity(Intent(this, ShakeDemo::class.java))
     }
+
 
     /**
      * gets a name and password, adds to PersonAndEvent all relevant fields if exist. if no such
@@ -166,7 +154,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         // Start the activity to get speed
     }
-
 
     fun PhotoGetter() {}
 
