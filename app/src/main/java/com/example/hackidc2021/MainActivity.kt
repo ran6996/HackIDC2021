@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.BufferedReader
-import java.io.FileReader
 import java.nio.file.Paths
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStreamReader
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         db.addContact(Person(2, "Tommy", "9522222222"))
         db.addContact(Person(3, "Karthik", "9533333333"))
 
-//        // Reading all contacts
+        // Reading all contacts
         Log.d("Reading: ", "Reading all contacts..")
         val contacts: List<Person> = db.allContacts
         for (cn in contacts) {
@@ -89,13 +88,10 @@ class MainActivity : AppCompatActivity() {
             val user = csvRecord.get("username")
             val pswd = csvRecord.get("password")
             if (personDetails.username == user && personDetails.password == pswd){
-                return 1
-            }
-            else{
                 return 0
             }
         }
-        return 0;
+        return -1;
     }
 
     /**
