@@ -25,13 +25,30 @@ class MainActivity : AppCompatActivity() {
      * gets a name and password, adds to PersonAndEvent all relevant fields if exsist. if no such
      * name or password - returns -1 (fail), else - returns success (0).
      */
-    fun NameAndPassword(name: String, password: String): Int
+    fun NameAndPassword(): Int
+    {
+        if (checkUseAndPasswordOnExcel() == -1)
+        {
+            print("The UserName or Password was incorrect")
+            return -1
+        }
+        else
+        {
+            return 0
+        }
+    }
+
+    /**
+     * checks userName and password and if valid - populates the person part. return 0 on success.
+     * if not valid - return -1
+     */
+    fun checkUseAndPasswordOnExcel() : Int
     {
         return 0
     }
 
     /**
-     * updates insurType to the relevant one and returm 0 on success -1 on failure.
+     * updates insurType to the relevant one and return 0 on success -1 on failure.
      */
     fun InsuranceType(type: String): Int
     {
@@ -84,27 +101,25 @@ class MainActivity : AppCompatActivity() {
         return 0
     }
 
-    fun PhotoGetter() : ??
+    fun PhotoGetter()
     {
     }
 
-    fun LocationGetter(): ??
+    fun LocationGetter()
     {
     }
 
-    fun MicrophoneGeter() ??
+    fun MicrophoneGeter()
     {
     }
 
-    fun MicrophoneToString() ??
+    fun MicrophoneToString()
     {
     }
 
     fun StringInputGetter(): String
     {
+        return "a"
     }
-
-
-
 
 }
