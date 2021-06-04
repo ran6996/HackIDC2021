@@ -50,7 +50,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'org.apache.commons:commons-csv:1.5'
-    
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    implementation 'com.squareup:seismic:1.0.2'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 

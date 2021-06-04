@@ -82,7 +82,7 @@ class DatabaseHandler(context: Context?) :
                     val contact = Person()
                     contact.iD = cursor.getString(0).toLong()
                     contact.name = cursor.getString(1)
-                    contact.phoneNumber = cursor.getString(2)
+                    contact.phoneNumber = cursor.getLong(2)
                     // Adding contact to list
                     contactList.add(contact)
                 } while (cursor.moveToNext())
