@@ -55,25 +55,11 @@ class MainActivity : AppCompatActivity() {
         // Added for DB.
         val db = DatabaseHandler(this)
 
-
-        // Inserting Contacts
+        // Inserting Contact
         Log.d("Insert: ", "Inserting ..")
-        db.addContact(Person(0, "Ravi", "9100000000"))
-        db.addContact(Person(1, "Srinivas", "9199999999"))
-        db.addContact(Person(2, "Tommy", "9522222222"))
-        db.addContact(Person(3, "Karthik", "9533333333"))
+        db.addContact(personDetails)
 
-        // Reading all contacts
-        Log.d("Reading: ", "Reading all contacts..")
-        val contacts: List<Person> = db.allContacts
-        for (cn in contacts) {
-            val log = "Id: " + cn.iD.toString() + " ,Name: " + cn.name
-                .toString() + " ,Phone: " +
-                    cn.phoneNumber
-            // Writing Contacts to log
-            Log.d("Name: ", log)
-        }
-
+        // Insert login info.
         button.setOnClickListener {
             personDetails.username = editTextTextPersonName.text.toString()
             personDetails.password = editTextTextPassword.text.toString()
@@ -83,27 +69,13 @@ class MainActivity : AppCompatActivity() {
         // Push notification following 3 shakes.
         startActivity(Intent(this, ShakeDemo::class.java))
 
+        // Allow for speech-to-text.
         btnSpeak.setOnClickListener(View.OnClickListener {
-
             getSpeechInput()
         })
     }
 
     private fun getSpeechInput() {
-//        val intent = Intent(
-//            RecognizerIntent
-//                .ACTION_RECOGNIZE_SPEECH
-//        )
-//        intent.putExtra(
-//            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-//            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-//        )
-//        intent.putExtra(
-//            RecognizerIntent.EXTRA_LANGUAGE,
-//            Locale.getDefault()
-//        )
-//
-//        startActivityForResult(intent, 10)
         try {
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(
@@ -206,53 +178,6 @@ class MainActivity : AppCompatActivity() {
         return -1
     }
 
-    /**
-     * updates insurType to the relevant one and return 0 on success -1 on failure.
-     */
-    fun InsuranceType(type: String): Int {
-        return 0
-    }
-
-    /**
-     * check who drove and adds it to the event instance. fills up the driver info accordingly
-     * returns 0 on success.
-     */
-    fun didTheOwnerDrive(): Int {
-        return 0
-    }
-
-    /**
-     * desplays info generated form the Person and Event objects. gets input from user
-     * for specific fields and updates the person & event instances accordingly.
-     * personal info as: name, id, etc event info as driver, num of vehicle etc.
-     */
-    fun Info(): Int {
-        return 0
-    }
-
-    /**
-     * gets AccidentInfo and save in the event, gets pics, voice description etc.
-     * In here we may add a check if the pics are from the internet, if the ID on the car matches,
-     * if the car color and photos we have are matching the color and type in the photos we get.
-     * Location of the accident - will get from phone here.
-     */
-    fun AccidentInfo(): Int {
-        return 0
-    }
-
-    /**
-     * success if success in the end and send file / data to company.
-     */
-    fun FinishProcess(): Int {
-        return 0
-    }
-
-    /**
-     * save temp info to phone so we can continue later.
-     */
-    fun saveTempToPhone(): Int {
-        return 0
-    }
 
     fun PhotoGetter(v: View?) {
         val intent = Intent(this, Upload::class.java)
@@ -265,15 +190,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         // Start the activity to upload an image
     }
-
-    fun LocationGetter() {}
-
-    fun MicrophoneGeter() {}
-
-    fun MicrophoneToString() {}
-
-    fun StringInputGetter(): String {
-        return "A"; }
 
 }
 

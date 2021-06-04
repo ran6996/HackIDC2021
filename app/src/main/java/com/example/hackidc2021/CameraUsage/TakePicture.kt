@@ -99,32 +99,33 @@ class TakePicture : AppCompatActivity() {
             val f = File(currentPhotoPath)
             mediaScanIntent.data = Uri.fromFile(f)
             sendBroadcast(mediaScanIntent)
-            try {
-                val exifInterface = ExifInterface(f.absolutePath)
-                val latLong = FloatArray(2)
-                val res = exifInterface.getLatLong(latLong)
-                if (res) {
-                    Toast.makeText(
-                        this,
-                        "heyooo",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    Toast.makeText(
-                        this,
-                        "didn't work",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            } catch (e: IOException) {
-                Toast.makeText(
-                    this,
-                    "io exception",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
         }
     }
 
 
 }
+
+//            try {
+//                val exifInterface = ExifInterface(f.absolutePath)
+//                val latLong = FloatArray(2)
+//                val res = exifInterface.getLatLong(latLong)
+//                if (res) {
+//                    Toast.makeText(
+//                        this,
+//                        "heyooo",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                } else {
+//                    Toast.makeText(
+//                        this,
+//                        "didn't work",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//            } catch (e: IOException) {
+//                Toast.makeText(
+//                    this,
+//                    "io exception",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }

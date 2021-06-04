@@ -14,16 +14,16 @@ class personal_details : AppCompatActivity() {
         val personDetails: Person? = intent.extras!!.getParcelable("personDetails")
         val eventDetails: Event? = intent.extras!!.getParcelable("eventDetails")
         if (personDetails != null) {
-            private_name.setText(personDetails.name)
-            last_name.setText(personDetails.lastName)
-            tz.setText(personDetails.iD.toString())
-            age.setText(personDetails.age)
-            address.setText(personDetails.address)
-            firm.setText(personDetails.vehicleModel)
-            policy_num.setText(personDetails.policyNumber.toString())
-            car_num.setText(personDetails.carId.toString())
-            year.setText(personDetails.vehicleYear.toString())
-            driver.setText(personDetails.isSingleDriver.toString())
+            private_name.text = personDetails.name
+            last_name.text = personDetails.lastName
+            tz.text = personDetails.iD.toString()
+            age.text = personDetails.age
+            address.text = personDetails.address
+            firm.text = personDetails.vehicleModel
+            policy_num.text = personDetails.policyNumber.toString()
+            car_num.text = personDetails.carId.toString()
+            year.text = personDetails.vehicleYear.toString()
+            driver.text = personDetails.isSingleDriver.toString()
         }
         button10.setOnClickListener{
             val intent = Intent(this, take_a_picture::class.java)
