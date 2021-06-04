@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C8EBEF"
+    tools:context=".recorder">
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="142dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:text="ספר לי מה קרה?"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="107dp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="350dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:text="הקש על סימן ההקלטה שבתחתית הטקסט והתחל לדבר. בסיום, לחץ שוב על סמליל ההקלטה.  "
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="336dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:text="אנו נאפשר לך לערוך את הטקסט לאחר מכן"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <ImageButton
+        android:id="@+id/btnSpeak"
+        android:layout_width="253dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginRight="79dp"
+        android:background="#C8EBEF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        app:srcCompat="@drawable/microphone_2104091_1280" />
+
+    <TextView
+        android:id="@+id/txvResult"
+        android:layout_width="272dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:text="תמלול"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSpeak" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
