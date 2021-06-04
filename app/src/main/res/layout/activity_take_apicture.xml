@@ -171,10 +171,11 @@
 
     <ImageButton
         android:id="@+id/imageButton7"
-        android:layout_width="71dp"
-        android:layout_height="59dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginRight="124dp"
+        android:layout_width="101dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+
         android:layout_marginBottom="168dp"
         android:adjustViewBounds="true"
         android:background="#D1E4E4"
@@ -189,8 +190,8 @@
         android:id="@+id/imageButton8"
         android:layout_width="61dp"
         android:layout_height="63dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginLeft="152dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
         android:layout_marginBottom="168dp"
         android:adjustViewBounds="true"
         android:background="#D1E4E4"
@@ -204,11 +205,12 @@
 
     <ImageButton
         android:id="@+id/imageButton10"
-        android:layout_width="63dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
+        android:layout_width="79dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+
         android:background="#D1E4E4"
         android:contentDescription="@string/hil"
         android:onClick="TakePhoto"

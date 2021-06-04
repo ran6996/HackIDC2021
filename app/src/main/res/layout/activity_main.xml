@@ -18,7 +18,7 @@
         android:layout_marginRight="143dp"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/event_report"
-        android:textColor="#CA1E1E"
+        android:textColor="#2196F3"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
