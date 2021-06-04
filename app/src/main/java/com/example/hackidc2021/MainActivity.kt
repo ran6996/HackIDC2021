@@ -6,12 +6,15 @@ import android.location.LocationManager
 import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.icu.util.UniversalTimeScale.toLong
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.speech.RecognizerIntent
 import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.CompoundButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,7 +26,8 @@ import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.BufferedReader
 import java.io.InputStreamReader
-
+import java.lang.Exception
+import java.util.*
 
 
 const val PERSON = "personDetails"
@@ -42,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         insurType = 0
         secondActivity = choose_subject()
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("Name: ", log)
         }
 
-        button.setOnClickListener{
+        button.setOnClickListener {
             personDetails.username = editTextTextPersonName.text.toString()
             personDetails.password = editTextTextPassword.text.toString()
             Login()
@@ -77,6 +82,76 @@ class MainActivity : AppCompatActivity() {
 
         // Push notification following 3 shakes.
         startActivity(Intent(this, ShakeDemo::class.java))
+
+        btnSpeak.setOnClickListener(View.OnClickListener {
+
+            getSpeechInput()
+        })
+    }
+
+    private fun getSpeechInput() {
+//        val intent = Intent(
+//            RecognizerIntent
+//                .ACTION_RECOGNIZE_SPEECH
+//        )
+//        intent.putExtra(
+//            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+//            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+//        )
+//        intent.putExtra(
+//            RecognizerIntent.EXTRA_LANGUAGE,
+//            Locale.getDefault()
+//        )
+//
+//        startActivityForResult(intent, 10)
+        try {
+            val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            );
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech recognition demo");
+            startActivityForResult(intent, 10)
+        } catch (e: ActivityNotFoundException) {
+            val appPackageName: String = "com.google.android.googlequicksearchbox";
+            try {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("market://details?id=" + appPackageName)
+                    )
+                );
+            } catch (anfe: Exception) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)
+                    )
+                );
+            }
+        }
+
+    }
+
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int, data: Intent?
+    ) {
+        super.onActivityResult(
+            requestCode,
+            resultCode, data
+        )
+        when (requestCode) {
+            10 -> if (resultCode == RESULT_OK &&
+                data != null
+            ) {
+                val result =
+                    data.getStringArrayListExtra(
+                        RecognizerIntent.EXTRA_RESULTS
+                    )
+                txvResult.text = result?.get(0)
+            }
+        }
     }
 
 
@@ -111,7 +186,7 @@ class MainActivity : AppCompatActivity() {
         for (csvRecord in csvParser) {
             val user = csvRecord.get("username")
             val pswd = csvRecord.get("password")
-            if (personDetails.username == user && personDetails.password == pswd){
+            if (personDetails.username == user && personDetails.password == pswd) {
                 personDetails.name = csvRecord.get("first")
                 personDetails.iD = csvRecord.get("id").toLong()
                 personDetails.lastName = csvRecord.get("last")
