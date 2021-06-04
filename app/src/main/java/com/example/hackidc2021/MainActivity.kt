@@ -118,11 +118,11 @@ class MainActivity : AppCompatActivity() {
                 personDetails.phoneNumber = csvRecord.get("phone").toLong()
                 personDetails.email = csvRecord.get("email")
                 personDetails.age = csvRecord.get("age")
-                personDetails.isSingleDriver = if (csvRecord.get("first") == "Yes") true else false
+                personDetails.isSingleDriver = csvRecord.get("single_driver") == "Yes"
                 personDetails.policyType = csvRecord.get("policy_type")
                 personDetails.address = csvRecord.get("address")
                 personDetails.policyNumber = csvRecord.get("policyNumber").toLong()
-                personDetails.vehicleYear = csvRecord.get("vehicleYear").toInt()
+                personDetails.vehicleYear = csvRecord.get("vehicleYear").toLong()
                 personDetails.vehicleModel = csvRecord.get("vehicleModel")
                 personDetails.carId = csvRecord.get("carId").toLong()
                 return 0
@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity() {
      * check who drove and adds it to the event instance. fills up the driver info accordingly
      * returns 0 on success.
      */
-    fun didTheOnerDrive(): Int {
+    fun didTheOwnerDrive(): Int {
         return 0
     }
 
@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * success if success in the end and send file / data to company.
      */
-    fun FinishProccess(): Int {
+    fun FinishProcess(): Int {
         return 0
     }
 

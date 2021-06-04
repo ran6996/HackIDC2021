@@ -20,7 +20,7 @@ class Person
     var policyType: String? = null,
     var address: String? = null,
     var policyNumber : Long = 0,
-    var vehicleYear: Int? = null,
+    var vehicleYear: Long = 0,
     var vehicleModel: String? = null,
     var carId: Long = 0
 ) : Parcelable
