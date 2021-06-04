@@ -1,13 +1,19 @@
 package com.example.hackidc2021
 
+import android.content.Context
+import android.content.Intent
+import android.location.LocationManager
 import android.content.ActivityNotFoundException
 import android.content.ComponentName
-import android.content.Intent
+import android.icu.util.UniversalTimeScale.toLong
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 import com.example.hackidc2021.CameraUsage.TakePicture
 import com.example.hackidc2021.ImageUpload.Upload
@@ -44,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         // Added for DB.
         val db = DatabaseHandler(this)
 
+
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..")
         db.addContact(Person(0, "Ravi", "9100000000"))
@@ -67,7 +74,9 @@ class MainActivity : AppCompatActivity() {
             personDetails.password = editTextTextPassword.text.toString()
             Login()
         }
-       // checkLoginInfo()
+
+        // Push notification following 3 shakes.
+        startActivity(Intent(this, ShakeDemo::class.java))
     }
 
 
@@ -104,6 +113,18 @@ class MainActivity : AppCompatActivity() {
             val pswd = csvRecord.get("password")
             if (personDetails.username == user && personDetails.password == pswd){
                 personDetails.name = csvRecord.get("first")
+                personDetails.iD = csvRecord.get("id").toLong()
+                personDetails.lastName = csvRecord.get("last")
+                personDetails.phoneNumber = csvRecord.get("phone").toLong()
+                personDetails.email = csvRecord.get("email")
+                personDetails.age = csvRecord.get("age")
+                personDetails.isSingleDriver = csvRecord.get("single_driver") == "Yes"
+                personDetails.policyType = csvRecord.get("policy_type")
+                personDetails.address = csvRecord.get("address")
+                personDetails.policyNumber = csvRecord.get("policyNumber").toLong()
+                personDetails.vehicleYear = csvRecord.get("vehicleYear").toLong()
+                personDetails.vehicleModel = csvRecord.get("vehicleModel")
+                personDetails.carId = csvRecord.get("carId").toLong()
                 return 0
             }
         }
@@ -121,7 +142,7 @@ class MainActivity : AppCompatActivity() {
      * check who drove and adds it to the event instance. fills up the driver info accordingly
      * returns 0 on success.
      */
-    fun didTheOnerDrive(): Int {
+    fun didTheOwnerDrive(): Int {
         return 0
     }
 
@@ -147,7 +168,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * success if success in the end and send file / data to company.
      */
-    fun FinishProccess(): Int {
+    fun FinishProcess(): Int {
         return 0
     }
 
