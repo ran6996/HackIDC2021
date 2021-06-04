@@ -1,14 +1,19 @@
 package com.example.hackidc2021
 
+import android.content.Context
+import android.content.Intent
+import android.location.LocationManager
 import android.content.ActivityNotFoundException
 import android.content.ComponentName
-import android.content.Intent
 import android.icu.util.UniversalTimeScale.toLong
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 import com.example.hackidc2021.CameraUsage.TakePicture
 import com.example.hackidc2021.ImageUpload.Upload
@@ -45,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         // Added for DB.
         val db = DatabaseHandler(this)
 
+
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..")
         db.addContact(Person(0, "Ravi", "9100000000"))
@@ -68,7 +74,9 @@ class MainActivity : AppCompatActivity() {
             personDetails.password = editTextTextPassword.text.toString()
             Login()
         }
-       // checkLoginInfo()
+
+        // Push notification following 3 shakes.
+        startActivity(Intent(this, ShakeDemo::class.java))
     }
 
 
