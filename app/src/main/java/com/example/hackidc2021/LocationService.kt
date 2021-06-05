@@ -7,9 +7,7 @@ import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
-import android.os.Bundle
 import android.os.Looper
-import android.util.Log
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 

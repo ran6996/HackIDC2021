@@ -1,33 +1,17 @@
 package com.example.hackidc2021
 
-import android.content.Context
 import android.content.Intent
-import android.location.LocationManager
-import android.content.ActivityNotFoundException
-import android.content.ComponentName
-import android.icu.util.UniversalTimeScale.toLong
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.speech.RecognizerIntent
 import android.util.Log
 import android.view.View
-import android.widget.CheckBox
-import android.widget.CompoundButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-
 import com.example.hackidc2021.CameraUsage.TakePicture
 import com.example.hackidc2021.ImageUpload.Upload
-
-import kotlinx.android.synthetic.main.activity_main.*
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.lang.Exception
-import java.util.*
 
 
 const val PERSON = "personDetails"
@@ -70,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, ShakeDemo::class.java))
 
     }
-
 
 
     /**

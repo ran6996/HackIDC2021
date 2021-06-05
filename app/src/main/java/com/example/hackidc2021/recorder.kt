@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_recorder.*
+import kotlinx.android.synthetic.main.activity_recorder.button3
 import java.lang.Exception
 
 class recorder : AppCompatActivity() {
@@ -18,6 +19,11 @@ class recorder : AppCompatActivity() {
         btnSpeak.setOnClickListener(View.OnClickListener {
             getSpeechInput()
         })
+
+        button3.setOnClickListener{
+            val intent = Intent(this, FinishActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getSpeechInput() {

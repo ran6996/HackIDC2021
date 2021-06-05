@@ -15,8 +15,6 @@ class take_a_picture : AppCompatActivity() {
 
         button2.setOnClickListener{
             val intent = Intent(this, recorder::class.java)
-//            intent.putExtra(PERSON, personDetails)
-//            intent.putExtra(EVENT, eventDetails)
             startActivity(intent)
         }
     }
